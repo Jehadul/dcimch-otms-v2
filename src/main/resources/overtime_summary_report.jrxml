@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="overtime_summary_report" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="61bf43d4-ddf1-4a64-81a7-4f3008c37615">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="OT_YEAR" class="java.lang.String"/>
+	<parameter name="OT_MONTH" class="java.lang.String"/>
+	<parameter name="OT_MONTH_1" class="java.lang.String"/>
+	<parameter name="OT_MONTH_2" class="java.lang.String"/>
+	<parameter name="OT_MONTH_3" class="java.lang.String"/>
+	<parameter name="OT_YEAR_1" class="java.lang.String"/>
+	<parameter name="OT_YEAR_2" class="java.lang.String"/>
+	<parameter name="OT_YEAR_3" class="java.lang.String"/>
+	<parameter name="UNIT_NAME" class="java.lang.String"/>
+	<field name="totalOfPervThreeMonth" class="java.lang.Double"/>
+	<field name="totalOfPervTwoMonth" class="java.lang.Double"/>
+	<field name="totalOfPervOneMonth" class="java.lang.Double"/>
+	<field name="totalOfThisMonth" class="java.lang.Double"/>
+	<field name="differLastTwoMonth" class="java.lang.Double"/>
+	<field name="departmentName" class="java.lang.String"/>
+	<field name="remarks" class="java.lang.String"/>
+	<field name="overallRemarks" class="java.lang.String"/>
+	<variable name="grandTotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalOfThisMonth}]]></variableExpression>
+	</variable>
+	<variable name="grandTotal1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalOfPervOneMonth}]]></variableExpression>
+	</variable>
+	<variable name="grandTotal2" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalOfPervTwoMonth}]]></variableExpression>
+	</variable>
+	<variable name="grandTotal3" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalOfPervThreeMonth}]]></variableExpression>
+	</variable>
+	<variable name="totalDefer" class="java.lang.Number" calculation="Sum">
+		<variableExpression><![CDATA[$F{differLastTwoMonth}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="-1" width="802" height="20" uuid="f7d26d31-f0e7-4bcd-a398-fd5aab11f4a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dhaka Central International Medical College & Hospital]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="802" height="20" uuid="af905edd-591b-4938-b2a7-56f888c3f012"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2/1 Shaymoli Ring Road, Dhaka-1207]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="40" width="204" height="20" uuid="3318ef28-32b9-44fb-a397-c1a091098dbe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Overtime Summary Sheet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="58" width="91" height="20" uuid="861a4d2b-04c4-4119-b885-0ec114b06466"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[For the month of]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="473" y="58" width="11" height="20" uuid="96ace6fb-ae80-4e1a-9461-b51de04566da"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="411" y="58" width="60" height="20" uuid="3b4b8fcf-5c47-492f-8347-3e5c9cc4bf48"/>
+				<textElement verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OT_MONTH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="58" width="75" height="20" uuid="52dd72e1-1b48-4758-b048-002b48500ade"/>
+				<textElement verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OT_YEAR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="573" y="38" width="66" height="20" uuid="ec42b441-8d3f-4872-bb42-49ea81f669b8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unit Name : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="641" y="38" width="161" height="20" uuid="fd321c6b-6426-45d2-b29c-4716d0c5f745"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{UNIT_NAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="44" height="41" uuid="9385e9bb-771f-489c-b0a7-59004140373c"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SL. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="563" y="1" width="124" height="41" uuid="3901b0df-eb6d-4f2d-90c3-87b6e1835029"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remarks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="687" y="1" width="115" height="41" uuid="85f6014a-c174-474d-9f61-deb061971ac1"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ovarall Remarks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="1" width="119" height="41" uuid="7d6a14b7-3102-4fbb-9260-2e4d9e944f53"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Department Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="1" width="86" height="41" uuid="d26bd9cf-4b41-45c1-921f-0f24f5369f5b"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Difference Bettween Last Two Month]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="389" y="1" width="88" height="21" uuid="3006e391-599f-409d-9131-9d51877cd1d4"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OT_MONTH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="1" width="79" height="21" uuid="fc96eb8a-0182-4ede-8cad-3d4fe46adf7b"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OT_MONTH_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="1" width="77" height="21" uuid="22ad81e4-cedc-4419-9318-26dd763ecbda"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OT_MONTH_2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="163" y="1" width="70" height="21" uuid="3b32c6e0-8d4c-4f18-8ae8-0d37d87e764a"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OT_MONTH_3}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="22" width="88" height="20" uuid="9ada48a8-7a25-4186-910b-76134e39b00f"/>
+				<box>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OT_YEAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="22" width="79" height="20" uuid="84bb5851-4c2f-4a4c-a200-9a3c859ff4b5"/>
+				<box>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OT_YEAR_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="22" width="77" height="20" uuid="68dfb9e6-a664-4a25-954e-1f03d5e2d5ee"/>
+				<box>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OT_YEAR_2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="163" y="22" width="70" height="20" uuid="3457ee91-c53b-4346-967d-228885f62be5"/>
+				<box>
+					<leftPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OT_YEAR_3}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="44" height="16" uuid="a5d9920c-0d49-428c-888a-be563462ff5d"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="163" y="0" width="70" height="16" uuid="45721861-9fc5-4819-96eb-5fa988dbc678"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalOfPervThreeMonth}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="563" y="0" width="124" height="16" uuid="c8104881-a10c-46a9-8697-f7fdd7f249d7"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph leftIndent="2" rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{remarks}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="0" width="88" height="16" uuid="810913dc-c4ae-489e-949f-e6a28aef5e9b"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalOfThisMonth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="44" y="0" width="119" height="16" uuid="225ac765-fa7e-41fe-8bd2-15d0cd9dd87c"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph leftIndent="2" rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{departmentName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="0" width="76" height="16" uuid="c8584928-5590-40eb-9895-21160e0fff3e"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalOfPervTwoMonth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="0" width="80" height="16" uuid="9404af36-ddbb-4102-81bd-ca8e3e0ae6ca"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalOfPervOneMonth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="0" width="86" height="16" uuid="124327ab-1ab5-46e0-85f6-a948a784033d"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{differLastTwoMonth}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="687" y="0" width="115" height="16" uuid="3530c087-7d8b-49a3-ba0e-f98c7359ed7e"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+					<paragraph leftIndent="2" rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{overallRemarks}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="802" y="0" width="1" height="16" uuid="8c7e33ee-404b-4428-b3eb-fdcec1f4920a"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="163" height="20" uuid="2951bec6-71c5-4ed6-9cb3-9d10edb929cb"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grand Total : ]]></text>
+			</staticText>
+			<textField pattern="###0">
+				<reportElement x="389" y="0" width="88" height="20" uuid="38e3bc20-ecb4-45aa-8f91-10b75cb2c7b5"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{grandTotal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="309" y="0" width="80" height="20" uuid="1595de18-134f-4ba0-9bbf-dfa9f3c3c289"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{grandTotal1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="233" y="0" width="76" height="20" uuid="339bd910-f276-4108-a017-d1677c743b3a"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{grandTotal2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement x="163" y="0" width="70" height="20" uuid="76c54199-5467-4405-8a51-20cfbaf3aa75"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{grandTotal3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="563" y="0" width="239" height="20" uuid="0702d87e-1d15-49ae-bd38-27f61d58b107"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="477" y="0" width="86" height="20" uuid="78b8e900-6f2a-444c-967f-a434d7f75991"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph rightIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalDefer}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

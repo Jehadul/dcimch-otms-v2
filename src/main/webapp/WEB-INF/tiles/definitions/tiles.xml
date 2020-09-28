@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!-- Base Definition -->
+	<definition name="base-definition" template="/WEB-INF/tiles/template/template.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/tiles/template/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
+	</definition>
+	
+	<definition name="base.definition2" template="/WEB-INF/views/login.jsp">
+		<put-attribute name="title" value="DCIMCH Overtime Management System"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+	</definition>
+	
+	<!-- Login Page -->
+	<definition name="login" extends="base.definition2">
+		<put-attribute name="title" value="Login Form"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp"></put-attribute>
+	</definition>
+
+	<!-- Home Page -->
+	<definition name="index" extends="base-definition">
+		<put-attribute name="title" value="Dashboard | DCIMCH Overtime Management System" />
+		<put-attribute name="body" value="/WEB-INF/views/index.jsp" />
+	</definition>
+	
+	<definition name="selectCompany" extends="base-definition">
+		<put-attribute name="title" value="Select Company" />
+		<put-attribute name="body" value="/WEB-INF/views/selectCompanyForm.jsp" />
+	</definition>
+	
+	<definition name="success" extends="base-definition">
+		<put-attribute name="title" value="Operation Successfull" />
+		<put-attribute name="body" value="/WEB-INF/views/success.jsp" />
+	</definition>
+	
+	<definition name="failed" extends="base-definition">
+		<put-attribute name="title" value="Operation Failed" />
+		<put-attribute name="body" value="/WEB-INF/views/failed.jsp" />
+	</definition>
+	
+	<!-- Settings start -->
+	<definition name="departmentForm" extends="base-definition">
+		<put-attribute name="title" value="Department Form"/>
+		<put-attribute name="body" value="/WEB-INF/views/addDepartment.jsp" />
+	</definition>
+	
+	<definition name="designationForm" extends="base-definition">
+		<put-attribute name="title" value="Designation Form"/>
+		<put-attribute name="body" value="/WEB-INF/views/addDesignation.jsp" />
+	</definition>
+	
+	<definition name="companyListAll" extends="base-definition">
+		<put-attribute name="title" value="Company List"/>
+		<put-attribute name="body" value="/WEB-INF/views/companyListAll.jsp" />
+	</definition>
+
+	<definition name="addCompany" extends="base-definition">
+		<put-attribute name="title" value="Add New Company "/>
+		<put-attribute name="body" value="/WEB-INF/views/addCompany.jsp" />
+	</definition>
+	
+	
+	<!-- Settings end -->
+	
+	<!--OTMS start -->
+	<definition name="employeeForm" extends="base-definition">
+		<put-attribute name="title" value="New Employee Form" />
+		<put-attribute name="body" value="/WEB-INF/views/employeeForm.jsp" />
+	</definition>
+	
+	<definition name="employeeList" extends="base-definition">
+		<put-attribute name="title" value="Active Employee List" />
+		<put-attribute name="body" value="/WEB-INF/views/employeeList.jsp" />
+	</definition>
+	
+	<definition name="otDtlEntryForm" extends="base-definition">
+		<put-attribute name="title" value="Overtime Details Form" />
+		<put-attribute name="body" value="/WEB-INF/views/otDtlEntryForm.jsp" />
+	</definition>
+	
+	<definition name="otDtlListForm" extends="base-definition">
+		<put-attribute name="title" value="Overtime Details Entry Form." />
+		<put-attribute name="body" value="/WEB-INF/views/otDtlListForm.jsp" />
+	</definition>	
+	
+	<definition name="otDtlFinalList" extends="base-definition">
+		<put-attribute name="title" value="Monthly Overtime Sheet" />
+		<put-attribute name="body" value="/WEB-INF/views/otDtlFinalList.jsp" />
+	</definition>
+	
+	<definition name="otSummaryEntryForm" extends="base-definition">
+		<put-attribute name="title" value="Overtime Summary Form"/>
+		<put-attribute name="body" value="/WEB-INF/views/otSummaryEntryForm.jsp" />
+	</definition>
+	
+	<definition name="otSummaryListForm" extends="base-definition">
+		<put-attribute name="title" value="Overtime Summary Entry Form"/>
+		<put-attribute name="body" value="/WEB-INF/views/otSummaryListForm.jsp" />
+	</definition>
+	
+	
+	<definition name="otSummaryFinalList" extends="base-definition">
+		<put-attribute name="title" value="Overtime Summary Final List"/>
+		<put-attribute name="body" value="/WEB-INF/views/otSummaryFinalList.jsp" />
+	</definition>
+	
+	<definition name="otDtlReportForm" extends="base-definition">
+		<put-attribute name="title" value="Overtime Details Report Form"/>
+		<put-attribute name="body" value="/WEB-INF/views/otDtlReportForm.jsp" />
+	</definition>
+	
+	<definition name="otSummaryReportForm" extends="base-definition">
+		<put-attribute name="title" value="Overtime Summary Report Form"/>
+		<put-attribute name="body" value="/WEB-INF/views/otSummaryReportForm.jsp" />
+	</definition>
+	
+	
+	<definition name="otDtlDeleteForm" extends="base-definition">
+		<put-attribute name="title" value="Overtime Details Delete Form"/>
+		<put-attribute name="body" value="/WEB-INF/views/otDtlDeleteForm.jsp" />
+	</definition>
+	
+	<definition name="employeeUpdateForm" extends="base-definition">
+		<put-attribute name="title" value="Employee Upload Form"/>
+		<put-attribute name="body" value="/WEB-INF/views/employeeUpdateForm.jsp" />
+	</definition>
+	<!--OTMS end -->
+	
+	
+</tiles-definitions>
